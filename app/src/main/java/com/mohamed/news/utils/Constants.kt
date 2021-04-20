@@ -257,12 +257,13 @@ object Constants
     )
 
     val interests = mutableListOf(
+            R.string.general,
+            R.string.business,
             R.string.technology,
-            R.string.art,
+            R.string.sports,
             R.string.science,
-            R.string.fashion,
-            R.string.engineering,
-            R.string.politics,
+            R.string.health,
+            R.string.entertainment,
     )
 }
 
