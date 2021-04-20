@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity()
         setContentView(R.layout.activity_splash)
         viewModel.state.observe(this@SplashActivity, { state -> setView(state) })
 
-        Handler(Looper.getMainLooper()).postDelayed({ }, 3000)
+        Handler(Looper.getMainLooper()).postDelayed({ viewModel.checkFirstUse() }, 3000)
     }
 
     private fun setView(state: SplashViewState)
