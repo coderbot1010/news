@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mohamed.news.R
 import com.mohamed.news.data.model.News
 import com.mohamed.news.databinding.ViewNewsItemBinding
+import com.mohamed.news.utils.DateFormatter
 import com.mohamed.news.utils.Views
 import com.mohamed.news.utils.setTextWithVisibilityCheck
 
@@ -33,7 +34,7 @@ class NewsAdapter(private val context: Context, private val listener: (News) -> 
         holder.binding.image.setImageResource(R.drawable.ic_logo)
         if (!item.image.isNullOrEmpty()) Views.ImageLoader.load(context, holder.binding.image, item.image!!)
         holder.binding.title.setTextWithVisibilityCheck(item.title)
-        holder.binding.date.setTextWithVisibilityCheck(item.date)
+        holder.binding.date.setTextWithVisibilityCheck(DateFormatter.format(item.date!!.time))
         holder.binding.source.setTextWithVisibilityCheck(item.source?.name)
         holder.binding.description.setTextWithVisibilityCheck(item.description)
     }
