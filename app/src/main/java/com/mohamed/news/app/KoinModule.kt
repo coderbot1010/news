@@ -5,6 +5,8 @@ import com.mohamed.news.data.repository.NewsRepositoryImplementation
 import com.mohamed.news.domain.repository.NewsRepository
 import com.mohamed.news.domain.usecase.*
 import com.mohamed.news.presentation.home.HomeViewModel
+import com.mohamed.news.presentation.onboard.country.CountriesViewModel
+import com.mohamed.news.presentation.onboard.interests.InterestsViewModel
 import com.mohamed.news.presentation.splash.SplashViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,6 +26,10 @@ val koinModule = module {
     single { GetNews(get(), get()) }
 
     viewModel { SplashViewModel(get()) }
+
+    viewModel { CountriesViewModel() }
+
+    viewModel { InterestsViewModel() }
 
     viewModel { HomeViewModel(get()) }
 }

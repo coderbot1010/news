@@ -7,6 +7,8 @@ import android.os.Handler
 import android.os.Looper
 import com.mohamed.news.R
 import com.mohamed.news.presentation.home.HomeActivity
+import com.mohamed.news.presentation.onboard.OnBoardActivity
+import com.mohamed.news.utils.Preferences
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class SplashActivity : AppCompatActivity()
@@ -18,6 +20,7 @@ class SplashActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         viewModel.state.observe(this@SplashActivity, { state -> setView(state) })
+        Preferences.getInterests(this)
 
         Handler(Looper.getMainLooper()).postDelayed({ viewModel.checkFirstUse() }, 3000)
     }
@@ -32,7 +35,7 @@ class SplashActivity : AppCompatActivity()
 
     private fun openOnBoarding()
     {
-        startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+        startActivity(Intent(this@SplashActivity, OnBoardActivity::class.java))
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         finish()
     }

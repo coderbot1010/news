@@ -1,6 +1,9 @@
 package com.mohamed.news.utils
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 
 object Preferences
 {
@@ -32,6 +35,23 @@ object Preferences
     {
         val preferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
         return preferences.getString("COUNTRY", "us") ?: "us"
+    }
+
+    fun setInterests(context: Context, interests: MutableList<Int>)
+    {
+        val editor = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).edit()
+        val data = Gson().toJson(interests)
+        editor.putString("INTERESTS", data)
+        editor.apply()
+        editor.commit()
+    }
+
+    fun getInterests(context: Context): MutableList<Int>
+    {
+        val preferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
+        val data = preferences.getString("INTERESTS", "[]") ?: "[]"
+        val listType: Type = object : TypeToken<MutableList<Int>>() {}.type
+        return Gson().fromJson(data, listType) as MutableList<Int>
     }
 
     fun clear(context: Context)

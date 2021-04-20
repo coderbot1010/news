@@ -2,4 +2,12 @@
     <string name="app_name">News</string>
     <string name="general_error">Something went wrong! please try again later…</string>
     <string name="ok">OK</string>
+    <string name="country">Country</string>
+    <string name="interests">Interests</string>
+    <string name="technology">Technology</string>
+    <string name="art">Art</string>
+    <string name="science">Science</string>
+    <string name="fashion">Fashion</string>
+    <string name="engineering">Engineering</string>
+    <string name="politics">Politics</string>
 </resources>
