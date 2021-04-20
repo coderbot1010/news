@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.mohamed.news"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -20,7 +20,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes.each {
-        it.buildConfigField "String", "BASE_URL", "\"https://dkhapis.azurewebsites.net/\""
+        it.buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+        it.buildConfigField "String", "API_KEY", "\"c63cb6b1ed8347afbed03d4f249f56ff\""
     }
     buildTypes {
         release {

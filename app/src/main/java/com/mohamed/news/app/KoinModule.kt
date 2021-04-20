@@ -1,6 +1,11 @@
 package com.mohamed.news.app
 
 import com.mohamed.news.BuildConfig
+import com.mohamed.news.data.repository.NewsRepositoryImplementation
+import com.mohamed.news.domain.repository.NewsRepository
+import com.mohamed.news.domain.usecase.*
+import com.mohamed.news.presentation.home.HomeViewModel
+import com.mohamed.news.presentation.splash.SplashViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.dsl.viewModel
@@ -12,7 +17,15 @@ val koinModule = module {
 
     single { provideRetrofit() }
 
-    // viewModel { BuildingsViewModel(get()) }
+    single { NewsRepositoryImplementation(get()) as NewsRepository }
+
+    single { CheckFirstUse(get()) }
+
+    single { GetNews(get(), get()) }
+
+    viewModel { SplashViewModel(get()) }
+
+    viewModel { HomeViewModel(get()) }
 }
 
 fun provideRetrofit(): Retrofit

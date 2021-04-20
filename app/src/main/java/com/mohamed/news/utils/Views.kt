@@ -36,11 +36,7 @@ class Views
     {
         fun load(context: Context, imageView: ImageView, imageURl: String, auth: String)
         {
-            glideLoader(
-                    context,
-                    imageView,
-                    GlideUrl(imageURl, LazyHeaders.Builder().addHeader("Authorization", auth).build())
-            )
+            glideLoader(context, imageView, GlideUrl(imageURl, LazyHeaders.Builder().addHeader("Authorization", auth).build()))
         }
 
         fun glideLoader(context: Context, imageView: ImageView, imagePath: String)

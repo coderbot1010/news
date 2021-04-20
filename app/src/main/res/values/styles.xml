@@ -9,6 +9,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="fontFamily">@font/comfortaa</item>
     </style>
 
     <style name="ProgressTheme" parent="ThemeOverlay.AppCompat.Light">

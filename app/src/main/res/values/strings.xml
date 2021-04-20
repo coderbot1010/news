@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">News</string>
+    <string name="general_error">Something went wrong! please try again later…</string>
+    <string name="ok">OK</string>
 </resources>
